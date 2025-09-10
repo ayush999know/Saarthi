@@ -12,7 +12,9 @@ Md. Talib (Admin Panel & Backend)
 
 Theme: Smart Mobility & Access Management
 
-Admin Panel Repository: Click here to view
+## Admin Panel
+[Click here to view the Admin Panel Repository](https://github.com/ayush999know/S_Admin.git)
+
 
 1. Overview
 
