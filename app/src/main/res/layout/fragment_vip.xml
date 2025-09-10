@@ -1,0 +1,806 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/vip_background_gradient"
+    tools:context=".VipHomeFragment">
+
+    <!-- VIP Header -->
+    <LinearLayout
+        android:id="@+id/vipHeader"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:orientation="horizontal"
+        android:gravity="center_vertical"
+        android:background="@drawable/vip_header_bg"
+        android:paddingHorizontal="16dp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:src="@drawable/ic_vip_crown"
+            android:tint="#FFD700" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="VIP ACCESS"
+            android:textColor="#FFD700"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:layout_marginStart="8dp" />
+
+        <View
+            android:layout_width="0dp"
+            android:layout_height="0dp"
+            android:layout_weight="1" />
+
+        <TextView
+            android:id="@+id/tvVipBenefits"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Exclusive Checkpoints • Priority Access • Premium Features"
+            android:textColor="#FFFFFF"
+            android:textSize="10sp"
+            android:maxLines="1"
+            android:ellipsize="end" />
+
+    </LinearLayout>
+
+    <!-- Search Bar with VIP styling -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/searchCard"
+        android:layout_width="0dp"
+        android:layout_height="50dp"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="25dp"
+        app:cardElevation="6dp"
+        app:cardBackgroundColor="#2A0F45"
+        app:layout_constraintTop_toBottomOf="@id/vipHeader"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal"
+            android:gravity="center_vertical"
+            android:paddingHorizontal="16dp">
+
+            <ImageView
+                android:layout_width="20dp"
+                android:layout_height="20dp"
+                android:src="@drawable/ic_vip_search"
+                android:tint="#FFD700" />
+
+            <EditText
+                android:id="@+id/searchBar"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:hint="Search VIP places..."
+                android:background="@android:color/transparent"
+                android:paddingHorizontal="8dp"
+                android:textSize="16sp"
+                android:textColor="#FFFFFF"
+                android:textColorHint="#BBBBBB"
+                android:inputType="text" />
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- VIP Map Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/mapCard"
+        android:layout_width="0dp"
+        android:layout_height="220dp"
+        android:layout_margin="16dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="#2A0F45"
+        app:layout_constraintTop_toBottomOf="@id/searchCard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <fragment
+            android:id="@+id/mapPreview"
+            android:name="com.google.android.gms.maps.SupportMapFragment"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent" />
+
+        <!-- VIP Expand Icon -->
+        <ImageView
+            android:id="@+id/btnExpandMap"
+            android:layout_width="42dp"
+            android:layout_height="42dp"
+            android:layout_gravity="top|start"
+            android:layout_margin="12dp"
+            android:background="@drawable/vip_expand_bg"
+            android:padding="8dp"
+            android:src="@drawable/ic_vip_expand"
+            android:tint="#FFD700" />
+
+        <!-- VIP Navigation Controls -->
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="top|end"
+            android:layout_margin="8dp"
+            android:orientation="vertical"
+            android:background="@drawable/vip_rounded_bg"
+            android:padding="4dp">
+
+            <ImageView
+                android:id="@+id/btnMyLocation"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_vip_my_location"
+                android:contentDescription="My Location"
+                android:padding="6dp"
+                android:tint="#FFD700" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="4dp"
+                android:background="#7048A5" />
+
+            <ImageView
+                android:id="@+id/btnClearRoute"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_vip_clear_route"
+                android:contentDescription="Clear Route"
+                android:padding="6dp"
+                android:tint="#FFD700" />
+
+            <!-- VIP Exclusive: Fast Travel Button -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginVertical="4dp"
+                android:background="#7048A5" />
+
+            <ImageView
+                android:id="@+id/btnFastTravel"
+                android:layout_width="36dp"
+                android:layout_height="36dp"
+                android:src="@drawable/ic_vip_fast_travel"
+                android:contentDescription="Fast Travel"
+                android:padding="6dp"
+                android:tint="#FFD700"
+                android:visibility="visible" />
+        </LinearLayout>
+
+        <!-- VIP Map Overlay Badge -->
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="bottom|start"
+            android:layout_margin="8dp"
+            android:text="VIP MAP"
+            android:textColor="#FFD700"
+            android:textSize="10sp"
+            android:background="@drawable/vip_badge_bg"
+            android:paddingHorizontal="8dp"
+            android:paddingVertical="4dp" />
+    </androidx.cardview.widget.CardView>
+
+    <!-- VIP Location Details Bar -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/detailsBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="8dp"
+        app:cardBackgroundColor="#2A0F45"
+        app:layout_constraintTop_toBottomOf="@id/mapCard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginHorizontal="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvLocationName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="VIP Location Name"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFD700" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_vip_badge"
+                    android:tint="#FFD700" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvLocationType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="VIP Location Type"
+                android:textSize="14sp"
+                android:textColor="#BBBBBB"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:id="@+id/tvLocationDetails"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="VIP exclusive access details"
+                android:textSize="14sp"
+                android:textColor="#DDDDDD"
+                android:layout_marginTop="8dp" />
+
+            <Button
+                android:id="@+id/btnLetsGo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="VIP Access"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="#FFD700"
+                android:textColor="#2A0F45"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- VIP Icons Row -->
+    <LinearLayout
+        android:id="@+id/iconRow"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_marginTop="8dp"
+        app:layout_constraintTop_toBottomOf="@id/detailsBar"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <ImageView
+            android:id="@+id/iconBathroom"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_vip_toilet"
+            android:padding="8dp"
+            android:background="@drawable/vip_icon_bg"
+            android:contentDescription="VIP Bathroom" />
+
+        <ImageView
+            android:id="@+id/iconChangingRoom"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_vip_changingroom"
+            android:padding="8dp"
+            android:background="@drawable/vip_icon_bg"
+            android:contentDescription="VIP Changing Room"
+            android:layout_marginStart="12dp" />
+
+        <ImageView
+            android:id="@+id/iconFirstAid"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_vip_firstaid"
+            android:padding="8dp"
+            android:background="@drawable/vip_icon_bg"
+            android:contentDescription="VIP First Aid"
+            android:layout_marginStart="12dp" />
+
+        <ImageView
+            android:id="@+id/iconCheckpoint"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_vip_checkpoint"
+            android:padding="8dp"
+            android:background="@drawable/vip_icon_bg"
+            android:contentDescription="VIP Checkpoint"
+            android:layout_marginStart="12dp" />
+
+        <ImageView
+            android:id="@+id/iconGhat"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_vip_ghat"
+            android:padding="8dp"
+            android:background="@drawable/vip_icon_bg"
+            android:contentDescription="VIP Ghat"
+            android:layout_marginStart="12dp" />
+
+        <!-- VIP Exclusive: Lounge Access -->
+        <ImageView
+            android:id="@+id/iconLounge"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:src="@drawable/ic_vip_lounge"
+            android:padding="8dp"
+            android:background="@drawable/vip_icon_bg"
+            android:contentDescription="VIP Lounge"
+            android:layout_marginStart="12dp" />
+
+    </LinearLayout>
+
+    <!-- VIP Checkpoint Info Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/checkpointCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="10dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="6dp"
+        app:cardBackgroundColor="#2A0F45"
+        app:layout_constraintTop_toBottomOf="@id/iconRow"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <!-- Current VIP Checkpoint Header -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="VIP Checkpoint"
+                    android:textSize="16sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFD700" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_vip_crown"
+                    android:tint="#FFD700" />
+            </LinearLayout>
+
+            <!-- Current VIP Checkpoint Info -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_vip_checkpoint_small"
+                    android:tint="#FFD700" />
+
+                <TextView
+                    android:id="@+id/tvCurrentCheckpoint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:text="VIP Checkpoint Access"
+                    android:textSize="14sp"
+                    android:textColor="#FFFFFF" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/ic_vip_person"
+                        android:tint="#BBBBBB" />
+
+                    <TextView
+                        android:id="@+id/tvPeopleAtCurrent"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="0"
+                        android:textSize="14sp"
+                        android:textColor="#BBBBBB" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- VIP Countdown Timer -->
+            <LinearLayout
+                android:id="@+id/countdownLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
+                android:visibility="gone"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_vip_timer"
+                    android:tint="#FF6B6B" />
+
+                <TextView
+                    android:id="@+id/tvCountdownTimer"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="8dp"
+                    android:text="10:00"
+                    android:textSize="14sp"
+                    android:textColor="#FF6B6B" />
+
+                <TextView
+                    android:id="@+id/tvArrivalEstimateCurrent"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:text="VIPs arriving: 0"
+                    android:textSize="12sp"
+                    android:textColor="#BBBBBB" />
+            </LinearLayout>
+
+            <!-- VIP Divider -->
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:background="#7048A5"
+                android:layout_marginVertical="12dp" />
+
+            <!-- Next VIP Checkpoint Header -->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Next VIP Checkpoint"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="#FFD700" />
+
+            <!-- Next VIP Checkpoint Info -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/ic_vip_checkpoint_small"
+                    android:tint="#4CD964" />
+
+                <TextView
+                    android:id="@+id/tvNextCheckpoint"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:text="VIP Exclusive Access"
+                    android:textSize="14sp"
+                    android:textColor="#FFFFFF" />
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="16dp"
+                        android:layout_height="16dp"
+                        android:src="@drawable/ic_vip_person"
+                        android:tint="#BBBBBB" />
+
+                    <TextView
+                        android:id="@+id/tvPeopleAtNext"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginStart="4dp"
+                        android:text="0"
+                        android:textSize="14sp"
+                        android:textColor="#BBBBBB" />
+                </LinearLayout>
+            </LinearLayout>
+
+            <!-- Next VIP Checkpoint Details -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp"
+                android:gravity="center_vertical">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_vip_distance"
+                    android:tint="#BBBBBB" />
+
+                <TextView
+                    android:id="@+id/tvNextCheckpointDistance"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_marginStart="8dp"
+                    android:text="VIP Distance: 0m"
+                    android:textSize="12sp"
+                    android:textColor="#BBBBBB" />
+
+                <TextView
+                    android:id="@+id/tvArrivalEstimateNext"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="VIPs arriving: 0"
+                    android:textSize="12sp"
+                    android:textColor="#BBBBBB" />
+            </LinearLayout>
+
+            <!-- VIP Fast Travel Option -->
+            <Button
+                android:id="@+id/btnFastTravelToNext"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Fast Travel to Next Checkpoint"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="#FFD700"
+                android:textColor="#2A0F45"
+                android:textStyle="bold"
+                android:visibility="gone" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- VIP People and Safety Card -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/infoCard"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginHorizontal="16dp"
+        android:layout_marginTop="10dp"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="6dp"
+        app:cardBackgroundColor="#2A0F45"
+        app:layout_constraintTop_toBottomOf="@id/checkpointCard"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="14dp">
+
+            <!-- VIP People and Safety -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvPeopleCount"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="VIP Radius: 5 people"
+                    android:textSize="15sp"
+                    android:textColor="#FFFFFF" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <TextView
+                    android:id="@+id/tvSafetyStatus"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="VIP Secure"
+                    android:textStyle="bold"
+                    android:textSize="15sp"
+                    android:textColor="#4CD964" />
+            </LinearLayout>
+
+            <!-- VIP Alert -->
+            <TextView
+                android:id="@+id/tvLocationAlert"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="VIP Message: No alerts"
+                android:textSize="14sp"
+                android:textColor="#FF6B6B"
+                android:paddingTop="8dp" />
+
+            <!-- VIP Exclusive: Concierge Service -->
+            <Button
+                android:id="@+id/btnConcierge"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Request VIP Concierge"
+                android:layout_marginTop="12dp"
+                android:backgroundTint="#FFD700"
+                android:textColor="#2A0F45"
+                android:textStyle="bold" />
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+    <!-- VIP Bottom Information Bar -->
+    <androidx.cardview.widget.CardView
+        android:id="@+id/infoBar"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:cardCornerRadius="12dp"
+        app:cardElevation="10dp"
+        app:cardBackgroundColor="#2A0F45"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_margin="16dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="16dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:id="@+id/tvInfoName"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="VIP Location Name"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    android:textColor="#FFD700" />
+
+                <ImageView
+                    android:layout_width="20dp"
+                    android:layout_height="20dp"
+                    android:src="@drawable/vip_badge_bg"
+                    android:tint="#FFD700" />
+
+                <ImageView
+                    android:id="@+id/btnCloseInfo"
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_vip_close"
+                    android:contentDescription="Close"
+                    android:padding="4dp"
+                    android:tint="#FFFFFF" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/tvInfoType"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="VIP Location Type"
+                android:textSize="14sp"
+                android:textColor="#BBBBBB"
+                android:layout_marginTop="4dp" />
+
+            <TextView
+                android:id="@+id/tvInfoDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="VIP exclusive description"
+                android:textSize="14sp"
+                android:textColor="#DDDDDD"
+                android:layout_marginTop="8dp" />
+
+            <!-- VIP Exclusive Features -->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_vip_priority"
+                    android:tint="#FFD700" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Priority Access"
+                    android:textSize="12sp"
+                    android:textColor="#BBBBBB"
+                    android:layout_marginStart="4dp" />
+
+                <ImageView
+                    android:layout_width="16dp"
+                    android:layout_height="16dp"
+                    android:src="@drawable/ic_vip_exclusive"
+                    android:tint="#FFD700"
+                    android:layout_marginStart="12dp" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="VIP Exclusive"
+                    android:textSize="12sp"
+                    android:textColor="#BBBBBB"
+                    android:layout_marginStart="4dp" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_marginTop="8dp">
+
+                <TextView
+                    android:id="@+id/tvInfoTime"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="VIP Hours: N/A"
+                    android:textSize="12sp"
+                    android:textColor="#BBBBBB" />
+
+                <View
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:layout_weight="1" />
+
+                <Button
+                    android:id="@+id/btnInfoNavigate"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="VIP Navigate"
+                    android:textSize="12sp"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="4dp"
+                    android:backgroundTint="#FFD700"
+                    android:textColor="#2A0F45" />
+
+                <!-- VIP Exclusive: Reserve Button -->
+                <Button
+                    android:id="@+id/btnReserve"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Reserve"
+                    android:textSize="12sp"
+                    android:paddingHorizontal="12dp"
+                    android:paddingVertical="4dp"
+                    android:backgroundTint="#4CD964"
+                    android:textColor="#2A0F45"
+                    android:layout_marginStart="8dp" />
+
+            </LinearLayout>
+
+        </LinearLayout>
+    </androidx.cardview.widget.CardView>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

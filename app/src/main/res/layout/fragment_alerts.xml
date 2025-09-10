@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#F8F9FF"
+    android:fillViewport="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="20dp">
+
+        <!-- Header with friendly illustration -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:paddingTop="20dp"
+            android:paddingBottom="30dp">
+
+            <ImageView
+                android:layout_width="120dp"
+                android:layout_height="120dp"
+                android:src="@drawable/ic_friendly_report"
+                android:contentDescription="Friendly reporting" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Let Us Know How We Can Help"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:textColor="#5B6BF0"
+                android:layout_marginTop="16dp" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="We're here to help! Share what's happening and we'll follow up as soon as possible."
+                android:textSize="16sp"
+                android:textColor="#66668A"
+                android:gravity="center"
+                android:layout_marginTop="12dp"
+                android:lineSpacingExtra="4dp"
+                android:paddingHorizontal="10dp" />
+        </LinearLayout>
+
+        <!-- Contact Input -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="20dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Your contact info"
+                android:textSize="16sp"
+                android:textColor="#5B6BF0"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/contactInput"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="Phone or email where we can reach you"
+                android:inputType="text"
+                android:padding="20dp"
+                android:background="@drawable/edit_text_friendly"
+                android:textColor="#33334F"
+                android:textColorHint="#9999B8" />
+        </LinearLayout>
+
+        <!-- Report Input -->
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginBottom="30dp">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="What would you like to report?"
+                android:textSize="16sp"
+                android:textColor="#5B6BF0"
+                android:layout_marginBottom="8dp" />
+
+            <EditText
+                android:id="@+id/reportInput"
+                android:layout_width="match_parent"
+                android:layout_height="150dp"
+                android:gravity="top|start"
+                android:hint="Please share as many details as you can"
+                android:inputType="textMultiLine"
+                android:padding="20dp"
+                android:background="@drawable/edit_text_friendly"
+                android:textColor="#33334F"
+                android:textColorHint="#9999B8" />
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/submitReportButton"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Send Your Report"
+            android:textAllCaps="false"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:backgroundTint="#009688"
+            android:textColor="#FFFFFF"
+            android:paddingVertical="16dp"
+            android:drawablePadding="8dp"/>
+
+        <!-- Support Text -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="We typically respond within 10 min"
+            android:textSize="14sp"
+            android:textColor="#66668A"
+            android:gravity="center"
+            android:layout_marginTop="12dp" />
+
+        <!-- Logout Button -->
+        <Button
+            android:id="@+id/logoutButton"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Not you? Sign out"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            android:background="@null"
+            android:textColor="#5B6BF0"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="40dp"
+            android:padding="16dp" />
+
+    </LinearLayout>
+</ScrollView>

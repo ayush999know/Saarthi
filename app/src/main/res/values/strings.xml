@@ -1,0 +1,22 @@
+<resources>
+    <string name="gender_prompt">Choose gender</string>
+    <!-- Replace default_web_client_id with OAuth client id (see notes) -->
+    <string name="default_web_client_id">76484165297-f6e5k6l6p6rgc2tn8qrsd8t2fls64gfo.apps.googleusercontent.com</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <!-- Add this line -->
+    <string name="google_maps_key" templateMergeStrategy="preserve" translatable="false">AIzaSyB1KZLNxXC8M_PP5sLtTvz57GwUFYgRB84</string>
+
+    <string-array name="path_types">
+        <item>All</item>
+        <item>Normal</item>
+        <item>VIP</item>
+        <item>Disabled</item>
+    </string-array>
+
+    <string-array name="user_types">
+        <item>Normal</item>
+        <item>VIP</item>
+        <item>Disabled</item>
+    </string-array>
+</resources>

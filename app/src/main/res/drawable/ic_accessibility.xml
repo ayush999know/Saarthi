@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- Head -->
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M12,3a2,2 0 1,0 0,4a2,2 0 1,0 0,-4z" />
+
+    <!-- Body -->
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M11,7h2v5h3v2h-5c-0.55,0 -1,-0.45 -1,-1V7z" />
+
+
+    <!-- Seat + Leg forward -->
+    <path
+        android:fillColor="#FF000000"
+        android:pathData="M13,12h3l2,5h-2l-1.5,-3h-1.5z" />
+</vector>

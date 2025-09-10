@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:map="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/map_container"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <!-- Google Map Fragment -->
+    <fragment
+        android:id="@+id/map"
+        android:name="com.google.android.gms.maps.SupportMapFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <!-- Simple top overlay showing loading state (optional) -->
+    <LinearLayout
+        android:id="@+id/loading_overlay"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="12dp"
+        android:orientation="horizontal"
+        android:padding="8dp"
+        android:background="@android:color/transparent"
+        android:gravity="center_vertical">
+
+        <ProgressBar
+            android:id="@+id/progressBar"
+            style="?android:attr/progressBarStyleSmall"
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:indeterminate="true" />
+
+        <TextView
+            android:id="@+id/tvLoading"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:text="Loading checkpoints..."
+            android:textSize="14sp" />
+    </LinearLayout>
+
+    <!-- Hint text shown when no checkpoints found (initially GONE) -->
+    <TextView
+        android:id="@+id/tvNoCheckpoints"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No checkpoints available"
+        android:textSize="16sp"
+        android:visibility="gone"
+        android:layout_gravity="center" />
+
+    <!-- Bottom panel for path options -->
+    <LinearLayout
+        android:id="@+id/bottom_panel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:orientation="vertical"
+        android:background="#E0E0E0"
+        android:padding="16dp"
+        android:visibility="visible">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:layout_marginBottom="8dp">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Path Type:"
+                android:textSize="16sp"
+                android:layout_gravity="center_vertical"
+                android:layout_marginEnd="8dp"/>
+
+            <Spinner
+                android:id="@+id/path_type_spinner"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"/>
+
+            <Button
+                android:id="@+id/btn_change_path"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="Change Path"
+                android:layout_marginStart="8dp"/>
+        </LinearLayout>
+
+        <TextView
+            android:id="@+id/tv_path_info"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Current path: 0 people"
+            android:textSize="14sp"/>
+    </LinearLayout>
+
+</FrameLayout>
