@@ -3,6 +3,9 @@ SAARTHI – Smart Crowd Management & Navigation App
 Team: Ayush Kumar (App Developer & Team Lead), Ashish Tiwary (AI), Md. Talib (Admin Panel & Backend)
 Theme: Smart Mobility & Access Management
 
+## Admin Panel
+[Click here to view the Admin Panel Repository](https://github.com/ayush999know/S_Admin.git)
+
 Overview:
 SAARTHI is an innovative mobile app and admin platform designed to address the challenges of crowd management, navigation, and accessibility in large gatherings such as festivals, religious events, and urban crowds. The system combines real-time monitoring, AI-driven predictions, personalized navigation, and hyperlocal communication to ensure safety, efficiency, and inclusivity for all participants.
 
